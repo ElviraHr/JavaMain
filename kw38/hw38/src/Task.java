@@ -31,7 +31,7 @@ public class Task {
 
     @Override
     public String toString() {
-        return  String.format("Task #%d, %s, %s. Days - %d\n",number, description,status, daysInProcessing);
+        return  String.format("Task #%d, %s, Status: %s. Days - %d\n",number, description ,status, daysInProcessing);
     }
 
     @Override

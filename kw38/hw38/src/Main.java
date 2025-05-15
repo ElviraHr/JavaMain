@@ -34,12 +34,16 @@ public class Main {
         Map<String, Integer> tasksByProgrammer = new HashMap<>();
         tasksByProgrammer = programmerList.stream()
                         .collect(Collectors.toMap(p->p.getName(), p-> p.getTasks().size()));
+
         Map<Integer, Task> tasksByNumber = programmerList.stream()
-                .map(p-> p.getTasks())
-                .flatMap(t->t.stream())
-                .collect(Collectors.toMap(t->t.getNumber(), t->t));
+                .map(p -> p.getTasks())
+                .flatMap(t -> t.stream())
+                .collect(Collectors.toMap(t -> t.getNumber(), t -> t));
 
-
+        Map<String, List<Task>> tasksByDescriptiom = programmerList.stream()
+                .map(p -> p.getTasks())
+                .flatMap(t -> t.stream())
+                .collect(Collectors.groupingBy(t -> t.getStatus(), Collectors.toList()));
 
 
         System.out.println("----1----: ");
@@ -47,6 +51,8 @@ public class Main {
         System.out.println("----2----: ");
         System.out.println(tasksByNumber);
         System.out.println("----3----: ");
+        System.out.println(tasksByNumber);
+
 }
 }
 
